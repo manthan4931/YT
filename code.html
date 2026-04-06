@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SonicConvert - Architectural Audio Utility</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c3c6d1",
+                    "primary": "#003466",
+                    "tertiary-fixed": "#ffdbcb",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2f3035",
+                    "tertiary": "#5c2300",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#335f99",
+                    "on-tertiary-fixed-variant": "#7a3000",
+                    "surface-variant": "#e2e2e7",
+                    "on-primary-container": "#93bcfc",
+                    "surface-container-high": "#e8e8ed",
+                    "on-surface": "#1a1c20",
+                    "secondary-fixed": "#e8deff",
+                    "outline": "#737781",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#a6c8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e2e2e7",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f9f9fe",
+                    "primary-container": "#1a4b84",
+                    "surface-container-low": "#f3f3f9",
+                    "on-background": "#1a1c20",
+                    "on-tertiary-container": "#ffa578",
+                    "on-secondary-container": "#fcf6ff",
+                    "background": "#f9f9fe",
+                    "secondary-container": "#7c4dff",
+                    "surface-container": "#ededf3",
+                    "surface": "#f9f9fe",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#d5e3ff",
+                    "on-secondary-fixed-variant": "#4f00d0",
+                    "inverse-on-surface": "#f0f0f6",
+                    "on-primary-fixed-variant": "#144780",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "on-tertiary-fixed": "#341100",
+                    "surface-dim": "#d9d9df",
+                    "on-primary-fixed": "#001c3b",
+                    "on-secondary-fixed": "#20005f",
+                    "on-surface-variant": "#424750",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#cdbdff",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#632ce5",
+                    "tertiary-container": "#803300",
+                    "primary-fixed-dim": "#a6c8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .btn-primary-gradient {
+            background: linear-gradient(135deg, #003466 0%, #1a4b84 100%);
+        }
+        .glass-nav {
+            background: rgba(249, 249, 254, 0.6);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed">
+<header class="w-full top-0 sticky glass-nav z-50">
+<div class="flex justify-between items-center h-16 px-8 max-w-7xl mx-auto">
+<div class="text-2xl font-extrabold tracking-tighter text-blue-900 font-headline">SonicConvert</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-blue-700 font-bold border-b-2 border-blue-700 py-1 transition-colors" href="#">Home</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">History</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">FAQ</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">About</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-secondary text-on-secondary px-5 py-2 font-bold transition-all scale-95 hover:scale-100 ease-in-out">Premium</button>
+</div>
+</div>
+</header>
+<main class="relative">
+<section class="max-w-7xl mx-auto px-8 pt-24 pb-32 flex flex-col items-center">
+<div class="text-center mb-12">
+<h1 class="font-headline text-display-lg text-6xl md:text-7xl font-extrabold text-on-surface tracking-tight mb-6">
+                    Developed By<span class="text-primary"> Manthan</span>.
+                </h1>
+<p class="max-w-2xl mx-auto text-on-surface-variant text-lg leading-relaxed">
+                    A professional-grade utility for extracting high-fidelity audio from YouTube. Architected for speed, precision, and trust.
+                </p>
+</div>
+<div class="w-full max-w-4xl bg-surface-container-low p-2 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex flex-col md:flex-row gap-2">
+<div class="relative flex-grow">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined">link</span>
+</div>
+<input class="w-full pl-12 pr-4 py-5 bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 rounded-lg text-on-surface text-lg" placeholder="Paste YouTube link here..." type="text" id="yturl"/>
+</div>
+<button onclick="downloadMP3()" class="btn-primary-gradient text-on-primary px-10 py-5 font-bold rounded-lg flex items-center justify-center gap-2 transition-all hover:opacity-90">
+<span >Convert</span>
+<p id="status" class="'mt-4 text-sm text-gray-500"></p>
+<span class="material-symbols-outlined">bolt</span>
+</button>
+</div>
+</div>
+<div class="mt-8 flex gap-6 text-label-md text-on-surface-variant font-medium">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>320kbps MP3</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>FLAC Support</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>No Ads</span>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-4">
+<h2 class="font-headline text-3xl font-bold text-on-surface mb-4">The Workflow</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                            SonicConvert follows a strict architectural protocol to ensure your audio remains uncompromised during the extraction process.
+                        </p>
+<div class="mt-12 overflow-hidden rounded-xl bg-surface-container-lowest">
+<img class="w-full h-48 object-cover opacity-90" data-alt="Close-up of professional audio mixing console with illuminated faders and knobs in a dim studio environment with blue light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGa62HJCWxeuGpzI8SVT4u_E-b3Jnx8rnXMmQ0vhq67_9pYuuuzxJVWWRMN1fXzowDGldmPqCE5DObycGiM7lJUQCOTIB5SimEJ9fioAaFQuZwpxzWa_sa7gNayCLCDMP4vxdSueZcDNQsjqt2M0RTFIsCLDPshY2_ysICEm_KL7ziHSBVHxh6FusslCA3G8_v9DUCgGsqHkr8jXoGjGks7lmstSAG6hlIAIKLX6nW49RwqAweUdLAcIZvQ-8M8L4ocj8PkPf9RhIa"/>
+</div>
+</div>
+<div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface p-8 rounded-xl flex flex-col gap-4 shadow-sm">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">content_paste</span>
+</div>
+<h3 class="font-bold text-xl text-on-surface">1. Capture</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Copy the URL of any YouTube video. Our system validates the stream integrity before initiating the handshake.
+                            </p>
+</div>
+<div class="bg-surface p-8 rounded-xl flex flex-col gap-4 shadow-sm">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">settings_input_component</span>
+</div>
+<h3 class="font-bold text-xl text-on-surface">2. Transcode</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Our backend clusters process the stream using high-trust architectural utilities, maintaining exact bitrates.
+                            </p>
+</div>
+<div class="bg-surface p-8 rounded-xl flex flex-col gap-4 shadow-sm">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">download_for_offline</span>
+</div>
+<h3 class="font-bold text-xl text-on-surface">3. Deliver</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Receive a direct download link. Files are kept on our temporary secure buffers for 30 minutes.
+                            </p>
+</div>
+<div class="bg-surface p-8 rounded-xl flex flex-col gap-4 shadow-sm">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h3 class="font-bold text-xl text-on-surface">4. Secure</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                All metadata is stripped and cleaned, ensuring a private and professional file structure for your library.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 py-24">
+<div class="bg-primary text-on-primary p-12 rounded-xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative">
+<div class="relative z-10">
+<h2 class="font-headline text-3xl font-extrabold mb-2">SonicConvert API</h2>
+<p class="text-on-primary/70 max-w-md">Integrate our professional conversion architecture directly into your own creative workflow.</p>
+</div>
+<button class="relative z-10 bg-on-primary text-primary px-8 py-4 font-bold rounded-lg hover:bg-primary-fixed transition-colors">
+                    View Documentation
+                </button>
+<div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="Clean lines of code on a high-resolution screen with futuristic synthwave lighting reflecting off the glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCra4WM_MT0YYcUfR6NwN7uDrOCAmwOkITgPmctrq0e4edBBXXfYwsLweCasQZqXIsl8dTVE2puzGwf8nsrTcOqu5cnFy10Z5PEHUC8K5slv3jTAI-XfaiZryhOC0qA8OaxEA2F0EJVO_xZ1-ro0owqAl5IkkSqnN6RWw_XeZlaar1g3fIWvUfao3yEW8USB8dOqLA9PqDDapnf1qGhL-NRSOQvJ-mEe3TGj2zllxN_sEQmZeep0baqOETXJ5jIsrjvF7Tni1kD3Vvi"/>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-8 max-w-7xl mx-auto gap-4">
+<div class="flex flex-col gap-2">
+<div class="font-bold text-blue-900 text-lg">SonicConvert</div>
+<div class="text-slate-500 text-sm font-medium tracking-wide italic">© 2024 SonicConvert. Architectural Utility.</div>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-slate-500 font-medium hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-slate-500 font-medium hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-slate-500 font-medium hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+<a class="text-slate-500 font-medium hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100" href="#">API Documentation</a>
+</div>
+</div>
+</footer>
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-md px-4 md:hidden">
+<nav class="bg-surface-bright/80 backdrop-blur-xl rounded-full shadow-2xl flex justify-around p-3 border border-outline-variant/20">
+<a class="flex flex-col items-center text-primary font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 font-medium" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px]">History</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 font-medium" href="#">
+<span class="material-symbols-outlined">stars</span>
+<span class="text-[10px]">Premium</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 font-medium" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Profile</span>
+</a>
+</nav>
+</div>
+<script>
+    function downloadMP3(){
+        const url=document.getElementById("yturl").value;
+
+        if(!url){
+            alert("Please enter a valid url")
+            return;
+        
+        }
+
+            const backendUrl = `http://localhost:1111/download?url=${encodeURIComponent(url)}`;
+            window.open(backendUrl, '_blank');
+    }
+
+    const status=document.getElementById("status");
+    status.innerText='Processing...';
+</script>
+</body></html>

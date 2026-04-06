@@ -1,3 +1,3 @@
 import os 
 def get_filename(path:str):
-    return os.path.baename(path)
+    return os.path.basename(path)
