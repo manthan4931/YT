@@ -18,7 +18,7 @@ app.add_middleware(
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 @app.get("/")
 def home():
-    return FileResponse(os.path.join(BASE_DIR,"docs.html"))
+    return FileResponse(os.path.join(BASE_DIR,"code.html"))
 
 @app.get("/download")
 def download(url:str):
