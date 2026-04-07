@@ -6,7 +6,7 @@ def download_mp3(url:str):
 
 
     ydl_opts={
-        'format':'bestaudio/best',
+        'format':'bestaudio/best/best',
         'outtmpl':f'{download_dir}/%(title)s.%(ext)s',
         'cookiefile':'cookies.txt',
         'postprocessors':[{
