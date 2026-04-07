@@ -10,6 +10,7 @@ def download_mp3(url:str):
         'outtmpl':f'{download_dir}/%(title)s.%(ext)s',
         'postprocessors':[{
             'key':'FFmpegExtractAudio',
+            'cookiefile':'cookies.txt'
             'preferredcodec':'mp3',
             'preferredquality':audio_quality,
         }]
