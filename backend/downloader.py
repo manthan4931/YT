@@ -8,9 +8,9 @@ def download_mp3(url:str):
     ydl_opts={
         'format':'bestaudio/best',
         'outtmpl':f'{download_dir}/%(title)s.%(ext)s',
+        'cookiefile':'cookies.txt',
         'postprocessors':[{
             'key':'FFmpegExtractAudio',
-            'cookiefile':'cookies.txt',
             'preferredcodec':'mp3',
             'preferredquality':audio_quality,
         }]
